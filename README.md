@@ -17,7 +17,7 @@ Abra http://localhost:8080 (ou, sem Node: `python3 -m http.server 8080`).
 
 ## Pendências
 - Logo aprovado (hoje há um wordmark provisório com ondas; não é logo oficial).
-- Domínio, textos de apresentação adicionais de Marjana e Raquel (se desejado) e confirmação do material de marca.
+- Domínio e confirmação do material de marca.
 - Endereço, CNPJ e páginas legais: não incluídos de propósito.
 
 ## Publicação e domínio
