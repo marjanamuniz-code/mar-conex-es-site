@@ -17,10 +17,12 @@
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 8px;
-  --header-h: 72px;
-  --wave-h: 56px;
-  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 80) scale(1 -1)' d='M0 0H1440V40C1320 0 1200 0 1080 40C960 80 840 80 720 40C600 0 480 0 360 40C240 80 120 80 0 40Z'/%3E%3C/svg%3E");
-  --hero-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1320 0 1200 0 1080 40C960 80 840 80 720 40C600 0 480 0 360 40C240 80 120 80 0 40Z'/%3E%3C/svg%3E");
+  --header-h: 84px;
+  --wave-h: 44px;
+  --link-h: 160px;
+  --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath d='M0 160V26 C120 50 240 80 360 56 C480 32 600 62 720 86 C840 110 960 140 1080 116 C1200 92 1320 116 1440 140 V160Z'/%3E%3C/svg%3E");
+  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 80) scale(1 -1)' d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
+  --hero-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
   /* Textura de areia: grãos finos gerados em SVG (sem arquivo de imagem). */
   --sand-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .28 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E");
 }
@@ -63,10 +65,10 @@ a { color: var(--navy); }
 /* Cabeçalho */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.98); border-bottom: 1px solid var(--line); }
 .header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); position: relative; z-index: 3; }
-.brand-mark { width: 38px; height: 38px; color: var(--navy); }
-.brand-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: -.01em; }
-.brand-name em { font-style: normal; color: var(--teal); }
+.brand { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; text-decoration: none; color: var(--navy); position: relative; z-index: 3; }
+.brand-mar { font: 42px/.95 Georgia, 'Times New Roman', serif; letter-spacing: 3px; }
+.brand-sub { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 4px; margin-top: 8px; }
+.brand-footer { color: #fff; margin-bottom: 14px; }
 .main-nav { display: flex; align-items: center; gap: 28px; }
 .main-nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .main-nav ul a { text-decoration: none; font-weight: 500; font-size: .98rem; color: var(--ink); padding: 6px 0; border-bottom: 2px solid transparent; }
@@ -91,8 +93,7 @@ a { color: var(--navy); }
   .main-nav ul { flex-direction: column; gap: 6px; }
   .main-nav ul a { color: #fff; font-family: var(--font-display); font-size: 2rem; border: 0; }
   .main-nav .btn { background: #fff; color: var(--navy); }
-  body.menu-open .brand { color: #fff; } body.menu-open .brand-mark { color: #fff; }
-  body.menu-open .brand-name, body.menu-open .brand-name em { color: #fff; }
+  body.menu-open .brand { color: #fff; }
 }
 
 /* Camadas de imagem */
@@ -190,13 +191,11 @@ a { color: var(--navy); }
 .footer-strip img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .footer-strip::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,27,61,.25), var(--navy-deep)); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; padding: 40px 0 28px; }
-.footer-brand { font-family: var(--font-display); font-size: 1.7rem; color: #fff; margin: 0 0 .3em; }
-.footer-brand em { font-style: normal; color: #7FD8D2; }
 .footer-tag { margin: 0; max-width: 24em; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.copyright { margin: 0; padding: 20px 0 32px; border-top: 1px solid rgba(255,255,255,.14); font-size: .9rem; color: #A9BDD6; }
+.copyright { margin: 0 auto; padding: 20px 0 32px; border-top: 1px solid rgba(255,255,255,.14); font-size: .9rem; color: #A9BDD6; }
 
 /* Responsivo */
 @media (max-width: 899px) {
@@ -213,7 +212,7 @@ a { color: var(--navy); }
 .section-head-light .section-sub { color: #E3F0F7; }
 
 /* Seções "mar": foto de mar com bordas onduladas; as demais seguem sobre o fundo de areia. */
-.sea { position: relative; color: #fff; margin-block: calc(var(--wave-h) * -.5); padding-block: calc(clamp(72px, 10vw, 128px) + var(--wave-h)); z-index: 1; background: linear-gradient(rgba(7,27,61,.72), rgba(11,42,91,.62)), var(--sea-img) center / cover no-repeat; -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
+.sea { --top-mask: var(--wave-top); --top-h: var(--wave-h); position: relative; color: #fff; margin-block: calc(var(--wave-h) * -.5); padding-block: calc(clamp(72px, 10vw, 128px) + var(--wave-h)); z-index: 1; background: linear-gradient(rgba(7,27,61,.72), rgba(11,42,91,.62)), var(--sea-img) center / cover no-repeat; -webkit-mask: var(--top-mask) top / 100% var(--top-h) no-repeat, linear-gradient(#000,#000) 0 var(--top-h) / 100% calc(100% - var(--top-h) - var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: var(--top-mask) top / 100% var(--top-h) no-repeat, linear-gradient(#000,#000) 0 var(--top-h) / 100% calc(100% - var(--top-h) - var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
 .sea-agua { --sea-img: url("../img/mar-agua-faixa.webp"); }
 .sea-espuma { --sea-img: url("../img/mar-espuma-faixa.webp"); }
 .sea-turquesa { --sea-img: url("../img/mar-turquesa-faixa.webp"); }
@@ -229,8 +228,6 @@ a { color: var(--navy); }
 .band { background: transparent; height: auto; padding: clamp(40px, 6vw, 80px) 0; display: block; }
 .band::after { display: none; }
 .band-text { position: static; color: var(--navy); }
-.contact { background: transparent; color: var(--navy); padding: clamp(48px, 8vw, 96px) 0; -webkit-mask: none; mask: none; }
-.contact::after { display: none; }
 /* Quem somos: nome com a foto dentro das letras */
 .about-new { text-align: left; }
 .about-logo { font-size: clamp(2.6rem, 7.5vw, 5.6rem); line-height: 1.05; font-weight: 700; letter-spacing: -.015em; white-space: nowrap; margin: 0 0 .4em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .1em; }
@@ -238,4 +235,14 @@ a { color: var(--navy); }
 .about-copy .about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 2.7rem); line-height: 1.15; font-weight: 600; color: #fff; margin-bottom: .6em; letter-spacing: -.01em; }
 .about-copy p { font-size: 1.0625rem; line-height: 1.65; color: #EAF4FA; }
 .about-copy strong { color: #fff; }
-@media (max-width: 699px) { :root { --wave-h: 36px; } }
+@media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 100px; --header-h: 76px; } }
+
+/* Primeiro e segundo slides: o mar de cima invade o da esquerda; à direita fica uma faixa de terra. */
+#quem-somos { --top-mask: var(--wave-link); --top-h: var(--link-h); margin-top: calc(var(--wave-h) * -1); padding-top: calc(var(--link-h) + clamp(32px, 5vw, 64px)); }
+.about-copy .about-statement { font-size: clamp(1.2rem, 2.5vw, 1.85rem); white-space: nowrap; }
+@media (max-width: 599px) { .about-copy .about-statement { white-space: normal; } }
+/* Contato sobre o mar */
+.contact-sea h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); max-width: 15em; }
+.contact-sea .lead { color: #EAF4FA; max-width: 36em; }
+.contact-sea .contact-note { margin-top: 2rem; max-width: 36em; padding: 14px 22px; border: 1px solid rgba(255,255,255,.4); border-radius: 18px; background: rgba(255,255,255,.08); display: block; }
+@media (max-width: 899px) { .footer-inner .brand-footer { align-items: flex-start; } }
