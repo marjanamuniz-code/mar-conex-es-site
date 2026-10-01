@@ -21,7 +21,7 @@
   --wave-h: 44px;
   --link-h: 240px;
   --link-overlap: 80px;
-  --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240' preserveAspectRatio='none'%3E%3Cpath d='M0 240V104C50 100 100 74 170 70C235 66 285 82 318 106C332 118 345 116 358 102C372 82 376 22 430 8C480 -2 520 14 536 56C548 92 556 104 590 108C640 112 700 90 800 80C940 66 1080 84 1200 76C1300 70 1380 82 1440 78V240Z'/%3E%3C/svg%3E");
+  --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240' preserveAspectRatio='none'%3E%3Cpath d='M0 240V106C100 104 230 98 323 98C360 90 410 22 490 10C515 6 535 8 548 24C575 60 600 90 690 102C760 108 830 96 900 84C960 76 1060 70 1130 76C1220 84 1330 98 1440 104V240Z'/%3E%3C/svg%3E");
   --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 80) scale(1 -1)' d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
   --hero-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
   /* Textura de areia: grãos finos gerados em SVG (sem arquivo de imagem). */
