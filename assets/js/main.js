@@ -49,16 +49,33 @@
   var clientsSection = doc.getElementById('clientes');
   var clientsList = doc.getElementById('clientes-lista');
   if (clients.length && clientsSection && clientsList) {
+    var el = function (tag, cls, text) { var n = doc.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
     clients.forEach(function (c) {
-      var li = doc.createElement('li');
-      var inner;
-      if (c.site && /^https:\/\//.test(c.site)) { inner = doc.createElement('a'); inner.href = c.site; inner.target = '_blank'; inner.rel = 'noopener noreferrer'; } else { inner = doc.createElement('div'); }
+      var li = el('li', 'client');
       if (c.logo && /^assets\/img\/clientes\/[\w.\-\/]+$/.test(c.logo)) {
-        var img = doc.createElement('img'); img.src = c.logo; img.alt = c.nome; img.loading = 'lazy'; inner.appendChild(img);
-      } else {
-        var s = doc.createElement('span'); s.textContent = c.nome; inner.appendChild(s);
+        var img = el('img', 'client-logo'); img.src = c.logo; img.alt = c.nome; img.loading = 'lazy'; li.appendChild(img);
       }
-      li.appendChild(inner); clientsList.appendChild(li);
+      li.appendChild(el('h3', 'client-name', c.nome));
+      if (c.tipo) li.appendChild(el('p', 'client-type', c.tipo));
+      if (c.descricao) li.appendChild(el('p', 'client-desc', c.descricao));
+      if (Array.isArray(c.servicos) && c.servicos.length) {
+        var tags = el('ul', 'client-tags');
+        c.servicos.forEach(function (t) { tags.appendChild(el('li', '', t)); });
+        li.appendChild(tags);
+      }
+      var info = el('dl', 'client-info');
+      [['Endereço', c.endereco], ['Horário', c.horario], ['Telefones', c.telefones]].forEach(function (p) {
+        if (p[1]) { info.appendChild(el('dt', '', p[0])); info.appendChild(el('dd', '', p[1])); }
+      });
+      if (c.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) {
+        info.appendChild(el('dt', '', 'E-mail'));
+        var dd = el('dd'); var m = el('a', '', c.email); m.href = 'mailto:' + c.email; dd.appendChild(m); info.appendChild(dd);
+      }
+      if (info.children.length) li.appendChild(info);
+      if (c.site && /^https:\/\//.test(c.site)) {
+        var a = el('a', 'client-link', 'Visitar site'); a.href = c.site; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.appendChild(a);
+      }
+      clientsList.appendChild(li);
     });
     clientsSection.hidden = false;
   }
