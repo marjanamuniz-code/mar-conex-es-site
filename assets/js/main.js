@@ -28,7 +28,7 @@
     numbers.forEach(function (n) {
       var wa = String(n).replace(/\D/g, '');
       if (!wa) return;
-      items.push({ label: 'WhatsApp', href: 'https://wa.me/' + wa + '?text=' + encodeURIComponent(cfg.whatsappMensagem || ''), ext: true, primary: true });
+      items.push({ label: 'WhatsApp', href: 'https://wa.me/' + wa + '?text=' + encodeURIComponent(cfg.whatsappMensagem || ''), ext: true });
     });
     var ig = String(cfg.instagram || '').replace(/^@/, '').trim();
     if (ig) items.push({ label: 'Instagram', href: 'https://www.instagram.com/' + encodeURIComponent(ig) + '/', ext: true });
