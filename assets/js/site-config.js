@@ -15,5 +15,7 @@ window.MAR_CONFIG = {
   /* Clientes: a aba e a seção só aparecem quando houver pelo menos um item.
      Cada item: { nome: "Nome do cliente", logo: "assets/img/clientes/arquivo.png" (opcional), site: "https://..." (opcional) }
      Exemplo: clientes: [ { nome: "Clínica Exemplo", logo: "assets/img/clientes/exemplo.png" } ] */
-  clientes: []
+  clientes: [
+    { nome: "Ortocopa" }
+  ]
 };
