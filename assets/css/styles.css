@@ -18,6 +18,8 @@
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 8px;
   --header-h: 72px;
+  --wave-h: 56px;
+  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 80) scale(1 -1)' d='M0 0H1440V40C1320 0 1200 0 1080 40C960 80 840 80 720 40C600 0 480 0 360 40C240 80 120 80 0 40Z'/%3E%3C/svg%3E");
   --hero-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1320 0 1200 0 1080 40C960 80 840 80 720 40C600 0 480 0 360 40C240 80 120 80 0 40Z'/%3E%3C/svg%3E");
   /* Textura de areia: grãos finos gerados em SVG (sem arquivo de imagem). */
   --sand-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .28 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E");
@@ -107,11 +109,11 @@ a { color: var(--navy); }
 .hero h1 { color: #fff; max-width: 14em; }
 .hero .lead { color: #EAF4FA; }
 /* Curva ondulada no fim do hero (recorte, para o fundo de areia aparecer por trás). */
-.hero { -webkit-mask: linear-gradient(#000,#000) top / 100% calc(100% - 63px) no-repeat, var(--hero-wave) bottom / 100% 64px no-repeat; mask: linear-gradient(#000,#000) top / 100% calc(100% - 63px) no-repeat, var(--hero-wave) bottom / 100% 64px no-repeat; }
+.hero { -webkit-mask: linear-gradient(#000,#000) top / 100% calc(100% - var(--wave-h) + 1px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: linear-gradient(#000,#000) top / 100% calc(100% - var(--wave-h) + 1px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
 
 /* Seções */
 .section { padding: clamp(72px, 10vw, 128px) 0; position: relative; }
-.section-tint { background: rgba(252,248,241,.55); }
+.section-tint { background: transparent; }
 .section-head { max-width: 46rem; margin-bottom: clamp(36px, 5vw, 60px); }
 .section-head-light h2 { color: #fff; }
 
@@ -209,3 +211,10 @@ a { color: var(--navy); }
 .tags { display: block; margin-top: 1rem; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
 .hero-loc { margin: 2rem 0 0; font-size: .9rem; letter-spacing: .04em; color: #CFE6F0; }
 .section-head-light .section-sub { color: #E3F0F7; }
+
+/* Ondas que separam as seções: as seções com foto têm borda superior/inferior ondulada. */
+.band, .section-photo { -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
+.contact { -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; }
+.band, .section-photo { margin-block: calc(var(--wave-h) * -.5); }
+.band { position: relative; z-index: 1; }
+@media (max-width: 699px) { :root { --wave-h: 36px; } }
