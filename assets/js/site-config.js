@@ -18,8 +18,8 @@ window.MAR_CONFIG = {
   clientes: [
     {
       nome: "Ortocopa",
-      tipo: "Torneio de ortopedistas · 10ª edição"
-      /* instagram: "usuario" (sem @) — preencher quando confirmado */
+      tipo: "Torneio de ortopedistas · 10ª edição",
+      instagram: "ortocopa_rio"
     }
   ]
 };
