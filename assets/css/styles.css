@@ -19,8 +19,9 @@
   --radius: 8px;
   --header-h: 76px;
   --wave-h: 44px;
-  --link-h: 200px;
-  --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200' preserveAspectRatio='none'%3E%3Cpath d='M0 200V44 C140 0 220 -28 360 16 C500 60 580 136 720 92 C860 48 940 106 1080 150 C1220 194 1300 216 1440 172 V200Z'/%3E%3C/svg%3E");
+  --link-h: 240px;
+  --link-overlap: 80px;
+  --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240' preserveAspectRatio='none'%3E%3Cpath d='M0 240V150C60 150 90 102 150 100C215 98 235 100 262 72C290 36 300 10 355 10C410 10 440 60 475 100C520 150 600 165 720 168C900 172 1100 160 1250 178C1330 188 1400 184 1440 180V240Z'/%3E%3C/svg%3E");
   --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 80) scale(1 -1)' d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
   --hero-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1320 20 1200 20 1080 40C960 60 840 60 720 40C600 20 480 20 360 40C240 60 120 60 0 40Z'/%3E%3C/svg%3E");
   /* Textura de areia: grãos finos gerados em SVG (sem arquivo de imagem). */
@@ -235,10 +236,10 @@ a { color: var(--navy); }
 .about-copy .about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 2.7rem); line-height: 1.15; font-weight: 600; color: #fff; margin-bottom: .6em; letter-spacing: -.01em; }
 .about-copy p { font-size: 1.0625rem; line-height: 1.65; color: #EAF4FA; }
 .about-copy strong { color: #fff; }
-@media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 100px; --header-h: 72px; } }
+@media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 130px; --link-overlap: 40px; --header-h: 72px; } }
 
 /* Primeiro e segundo slides: o mar de cima invade o da esquerda; à direita fica uma faixa de terra. */
-#quem-somos { --top-mask: var(--wave-link); --top-h: var(--link-h); margin-top: calc(var(--wave-h) * -1 - 44px); padding-top: calc(var(--link-h) + 44px + clamp(32px, 5vw, 64px)); }
+#quem-somos { --top-mask: var(--wave-link); --top-h: var(--link-h); margin-top: calc(var(--wave-h) * -1 - var(--link-overlap)); padding-top: calc(var(--link-h) + var(--link-overlap) + clamp(32px, 5vw, 64px)); }
 .about-copy .about-statement { font-size: clamp(1.2rem, 2.5vw, 1.85rem); white-space: nowrap; }
 @media (max-width: 599px) { .about-copy .about-statement { white-space: normal; } }
 /* Contato sobre o mar */
