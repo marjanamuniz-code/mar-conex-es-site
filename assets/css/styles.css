@@ -159,9 +159,9 @@ a { color: var(--navy); }
 .section-photo { color: #fff; overflow: hidden; background: var(--navy); }
 .section-photo .container { position: relative; z-index: 2; }
 .audience { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.audience li { padding: 26px 22px; border-radius: var(--radius); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); }
-.audience h3 { color: #fff; font-size: 1.2rem; margin: 0; }
-.num { display: block; font-size: .8rem; letter-spacing: .15em; font-weight: 700; color: #BFEDEA; margin-bottom: 36px; }
+.audience li { padding: 26px 22px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); }
+.audience h3 { color: var(--navy); font-size: 1.2rem; margin: 0; }
+.num { display: block; font-size: .8rem; letter-spacing: .15em; font-weight: 700; color: var(--teal); margin-bottom: 36px; }
 @media (max-width: 1099px) { .audience { grid-template-columns: repeat(6, 1fr); } .audience li { grid-column: span 2; } .audience li:nth-child(n+4) { grid-column: span 3; } }
 @media (max-width: 699px) { .audience li, .audience li:nth-child(n+4) { grid-column: span 3; } .audience li:last-child { grid-column: 1 / -1; } .num { margin-bottom: 20px; } }
 
@@ -180,7 +180,7 @@ a { color: var(--navy); }
 .contact, .notfound { position: relative; overflow: hidden; color: #fff; background: var(--navy); padding: clamp(80px, 12vw, 150px) 0; }
 .notfound { min-height: 70vh; display: flex; align-items: center; }
 .contact-inner { position: relative; z-index: 2; }
-.contact h2, .notfound h1 { color: #fff; max-width: 15em; }
+.notfound h1 { color: #fff; max-width: 15em; }
 .contact .lead, .notfound .lead { color: #EAF4FA; }
 .contact-note { margin-top: 2rem; padding: 14px 22px; display: inline-block; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; background: rgba(255,255,255,.1); }
 
@@ -212,9 +212,30 @@ a { color: var(--navy); }
 .hero-loc { margin: 2rem 0 0; font-size: .9rem; letter-spacing: .04em; color: #CFE6F0; }
 .section-head-light .section-sub { color: #E3F0F7; }
 
-/* Ondas que separam as seções: as seções com foto têm borda superior/inferior ondulada. */
-.band, .section-photo { -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
-.contact { -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; }
-.band, .section-photo { margin-block: calc(var(--wave-h) * -.5); }
-.band { position: relative; z-index: 1; }
+/* Seções "mar": foto de mar com bordas onduladas; as demais seguem sobre o fundo de areia. */
+.sea { position: relative; color: #fff; margin-block: calc(var(--wave-h) * -.5); padding-block: calc(clamp(72px, 10vw, 128px) + var(--wave-h)); z-index: 1; background: linear-gradient(rgba(7,27,61,.72), rgba(11,42,91,.62)), var(--sea-img) center / cover no-repeat; -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) center / 100% calc(100% - 2 * var(--wave-h) + 2px) no-repeat, var(--hero-wave) bottom / 100% var(--wave-h) no-repeat; }
+.sea-agua { --sea-img: url("../img/mar-agua-faixa.webp"); }
+.sea-espuma { --sea-img: url("../img/mar-espuma-faixa.webp"); }
+.sea-turquesa { --sea-img: url("../img/mar-turquesa-faixa.webp"); }
+.sea h2, .sea h3, .sea .section-sub { color: #fff; }
+.sea .eyebrow { color: #BFEDEA; }
+.sea .card h3, .sea .step h3 { color: var(--navy); }
+.sea .eyebrow-light { color: #BFEDEA; }
+.sea .card p, .sea .step p { color: var(--muted); }
+.sea .section-sub { color: #E3F0F7; }
+/* Rodapé com borda superior ondulada */
+.site-footer { -webkit-mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; mask: var(--wave-top) top / 100% var(--wave-h) no-repeat, linear-gradient(#000,#000) bottom / 100% calc(100% - var(--wave-h) + 1px) no-repeat; }
+/* Faixa e contato sobre areia */
+.band { background: transparent; height: auto; padding: clamp(40px, 6vw, 80px) 0; display: block; }
+.band::after { display: none; }
+.band-text { position: static; color: var(--navy); }
+.contact { background: transparent; color: var(--navy); padding: clamp(48px, 8vw, 96px) 0; -webkit-mask: none; mask: none; }
+.contact::after { display: none; }
+/* Quem somos: nome com a foto dentro das letras */
+.about-new { text-align: left; }
+.about-logo { font-size: clamp(3.2rem, 13vw, 10.5rem); line-height: .95; font-weight: 800; letter-spacing: -.03em; margin: 0 0 .15em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .08em; }
+.about-copy { max-width: 56rem; }
+.about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.2; color: #fff; margin-bottom: 1.2em; }
+.about-copy p { font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: 1.55; color: #EAF4FA; }
+.about-copy strong { color: #fff; }
 @media (max-width: 699px) { :root { --wave-h: 36px; } }

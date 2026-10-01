@@ -36,7 +36,7 @@
     if (em) items.push({ label: 'E-mail', href: 'mailto:' + em, ext: false });
     items.forEach(function (it) {
       var a = doc.createElement('a');
-      a.className = 'btn ' + (it.primary ? 'btn-light' : 'btn-ghost');
+      a.className = 'btn ' + 'btn-outline';
       a.href = it.href; a.textContent = it.label;
       if (it.ext) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
       list.appendChild(a);
