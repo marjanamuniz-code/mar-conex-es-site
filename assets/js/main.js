@@ -24,8 +24,16 @@
   var fallback = doc.getElementById('contact-pending');
   if (list) {
     var items = [];
-    var wa = String(cfg.whatsapp || '').replace(/\D/g, '');
-    if (wa) items.push({ label: 'WhatsApp', href: 'https://wa.me/' + wa + '?text=' + encodeURIComponent(cfg.whatsappMensagem || ''), ext: true, primary: true });
+    var numbers = [].concat(cfg.whatsapp || []);
+    numbers.forEach(function (n) {
+      var wa = String(n).replace(/\D/g, '');
+      if (!wa) return;
+      var local = wa.replace(/^55/, '');
+      var label = numbers.length > 1 && local.length >= 10
+        ? 'WhatsApp (' + local.slice(0, 2) + ') ' + local.slice(2, local.length - 4) + '-' + local.slice(-4)
+        : 'WhatsApp';
+      items.push({ label: label, href: 'https://wa.me/' + wa + '?text=' + encodeURIComponent(cfg.whatsappMensagem || ''), ext: true, primary: true });
+    });
     var ig = String(cfg.instagram || '').replace(/^@/, '').trim();
     if (ig) items.push({ label: 'Instagram', href: 'https://www.instagram.com/' + encodeURIComponent(ig) + '/', ext: true });
     var em = String(cfg.email || '').trim();
