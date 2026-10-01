@@ -11,5 +11,9 @@ window.MAR_CONFIG = {
   whatsapp: ["5521970934004", "5521967373007"],
   whatsappMensagem: "Olá! Gostaria de conversar sobre um projeto com a Mar Conexões.",
   instagram: "marconexoes",
-  email: "marconexoesmkt@gmail.com"
+  email: "marconexoesmkt@gmail.com",
+  /* Clientes: a aba e a seção só aparecem quando houver pelo menos um item.
+     Cada item: { nome: "Nome do cliente", logo: "assets/img/clientes/arquivo.png" (opcional), site: "https://..." (opcional) }
+     Exemplo: clientes: [ { nome: "Clínica Exemplo", logo: "assets/img/clientes/exemplo.png" } ] */
+  clientes: []
 };

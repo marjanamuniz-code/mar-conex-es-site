@@ -44,6 +44,26 @@
     if (items.length) { list.hidden = false; if (fallback) fallback.hidden = true; }
   }
 
+  /* Clientes — aba e seção só existem quando site-config.js trouxer clientes */
+  var clients = Array.isArray(cfg.clientes) ? cfg.clientes.filter(function (c) { return c && String(c.nome || '').trim(); }) : [];
+  var clientsSection = doc.getElementById('clientes');
+  var clientsList = doc.getElementById('clientes-lista');
+  if (clients.length && clientsSection && clientsList) {
+    clients.forEach(function (c) {
+      var li = doc.createElement('li');
+      var inner;
+      if (c.site && /^https:\/\//.test(c.site)) { inner = doc.createElement('a'); inner.href = c.site; inner.target = '_blank'; inner.rel = 'noopener noreferrer'; } else { inner = doc.createElement('div'); }
+      if (c.logo && /^assets\/img\/clientes\/[\w.\-\/]+$/.test(c.logo)) {
+        var img = doc.createElement('img'); img.src = c.logo; img.alt = c.nome; img.loading = 'lazy'; inner.appendChild(img);
+      } else {
+        var s = doc.createElement('span'); s.textContent = c.nome; inner.appendChild(s);
+      }
+      li.appendChild(inner); clientsList.appendChild(li);
+    });
+    clientsSection.hidden = false;
+  }
+  doc.querySelectorAll('[data-clientes]').forEach(function (el) { el.hidden = !clients.length; });
+
   var y = doc.getElementById('ano');
   if (y) y.textContent = new Date().getFullYear();
 })();
