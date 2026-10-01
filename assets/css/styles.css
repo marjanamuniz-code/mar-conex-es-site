@@ -119,8 +119,8 @@ a { color: var(--navy); }
 .about-visual { position: relative; padding-bottom: 60px; }
 .frame { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: none; }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
-.frame-tall { width: 78%; aspect-ratio: 4/5; }
-.frame-small { position: absolute; right: 0; bottom: 0; width: 46%; aspect-ratio: 1; border: 6px solid var(--sand); }
+.frame-tall { width: 74%; aspect-ratio: 4/5; border-radius: 0; clip-path: url(#onda-a); }
+.frame-small { position: absolute; right: 0; bottom: 0; width: 46%; aspect-ratio: 1; border-radius: 0; clip-path: url(#onda-b); }
 .about-text p { color: var(--muted); }
 .about-text strong { color: var(--navy); }
 .founders { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 14px; }
