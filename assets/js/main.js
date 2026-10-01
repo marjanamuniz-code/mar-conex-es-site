@@ -72,6 +72,10 @@
         var dd = el('dd'); var m = el('a', '', c.email); m.href = 'mailto:' + c.email; dd.appendChild(m); info.appendChild(dd);
       }
       if (info.children.length) li.appendChild(info);
+      var ig = String(c.instagram || '').replace(/^@/, '').trim();
+      if (/^[A-Za-z0-9_.]+$/.test(ig)) {
+        var l = el('a', 'client-link', 'Instagram @' + ig); l.href = 'https://www.instagram.com/' + ig + '/'; l.target = '_blank'; l.rel = 'noopener noreferrer'; li.appendChild(l);
+      }
       if (c.site && /^https:\/\//.test(c.site)) {
         var a = el('a', 'client-link', 'Visitar site'); a.href = c.site; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.appendChild(a);
       }

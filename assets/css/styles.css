@@ -17,7 +17,7 @@
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 8px;
-  --header-h: 84px;
+  --header-h: 76px;
   --wave-h: 44px;
   --link-h: 160px;
   --wave-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath d='M0 160V26 C120 50 240 80 360 56 C480 32 600 62 720 86 C840 110 960 140 1080 116 C1200 92 1320 116 1440 140 V160Z'/%3E%3C/svg%3E");
@@ -65,9 +65,9 @@ a { color: var(--navy); }
 /* Cabeçalho */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.98); border-bottom: 1px solid var(--line); }
 .header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; text-decoration: none; color: var(--navy); position: relative; z-index: 3; }
-.brand-mar { font: 42px/.95 Georgia, 'Times New Roman', serif; letter-spacing: 3px; }
-.brand-sub { font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 4px; margin-top: 8px; }
+.brand { display: inline-flex; align-items: baseline; gap: 12px; line-height: 1; text-decoration: none; color: var(--navy); position: relative; z-index: 3; white-space: nowrap; }
+.brand-mar { font: 38px/1 Georgia, 'Times New Roman', serif; letter-spacing: 3px; }
+.brand-sub { font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 4px; }
 .brand-footer { color: #fff; margin-bottom: 14px; }
 .main-nav { display: flex; align-items: center; gap: 28px; }
 .main-nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
@@ -235,7 +235,7 @@ a { color: var(--navy); }
 .about-copy .about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 2.7rem); line-height: 1.15; font-weight: 600; color: #fff; margin-bottom: .6em; letter-spacing: -.01em; }
 .about-copy p { font-size: 1.0625rem; line-height: 1.65; color: #EAF4FA; }
 .about-copy strong { color: #fff; }
-@media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 100px; --header-h: 76px; } }
+@media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 100px; --header-h: 72px; } }
 
 /* Primeiro e segundo slides: o mar de cima invade o da esquerda; à direita fica uma faixa de terra. */
 #quem-somos { --top-mask: var(--wave-link); --top-h: var(--link-h); margin-top: calc(var(--wave-h) * -1); padding-top: calc(var(--link-h) + clamp(32px, 5vw, 64px)); }
@@ -262,3 +262,5 @@ a { color: var(--navy); }
 .client-info a, .client-link { color: var(--navy); text-underline-offset: 3px; }
 .client-link { font-weight: 600; }
 @media (max-width: 599px) { .client-info { grid-template-columns: 1fr; gap: 0; } .client-info dd { margin-bottom: 8px; } }
+
+@media (max-width: 599px) { .brand-mar { font-size: 30px; letter-spacing: 2px; } .brand-sub { font-size: 10px; letter-spacing: 3px; } .brand { gap: 8px; } }
