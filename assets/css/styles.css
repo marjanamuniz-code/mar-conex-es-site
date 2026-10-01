@@ -233,9 +233,9 @@ a { color: var(--navy); }
 .contact::after { display: none; }
 /* Quem somos: nome com a foto dentro das letras */
 .about-new { text-align: left; }
-.about-logo { font-size: clamp(3.2rem, 13vw, 10.5rem); line-height: .95; font-weight: 800; letter-spacing: -.03em; margin: 0 0 .15em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .08em; }
-.about-copy { max-width: 56rem; }
-.about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.2; color: #fff; margin-bottom: 1.2em; }
-.about-copy p { font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: 1.55; color: #EAF4FA; }
+.about-logo { font-size: clamp(2.6rem, 7.5vw, 5.6rem); line-height: 1.05; font-weight: 700; letter-spacing: -.015em; white-space: nowrap; margin: 0 0 .4em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .1em; }
+.about-copy { max-width: 44rem; }
+.about-copy .about-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.8vw, 2.7rem); line-height: 1.15; font-weight: 600; color: #fff; margin-bottom: .6em; letter-spacing: -.01em; }
+.about-copy p { font-size: 1.0625rem; line-height: 1.65; color: #EAF4FA; }
 .about-copy strong { color: #fff; }
 @media (max-width: 699px) { :root { --wave-h: 36px; } }
