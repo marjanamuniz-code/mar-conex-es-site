@@ -1,7 +1,8 @@
 /* ==========================================================================
    Mar Conexões — estilos. Cores e fontes: edite as variáveis em :root.
    ========================================================================== */
-/* Fonte própria (arquivos em assets/fonts): Epilogue em todo o site. */
+/* Fontes próprias (arquivos em assets/fonts): League Gothic (revival da Alternate Gothic) nos títulos e no nome; Epilogue no texto. */
+@font-face { font-family: "League Gothic"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/LeagueGothic-Regular-400.woff2") format("woff2"); }
 @font-face { font-family: "Epilogue"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/Epilogue-Regular-400.woff2") format("woff2"); }
 @font-face { font-family: "Epilogue"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/Epilogue-Medium-500.woff2") format("woff2"); }
 @font-face { font-family: "Epilogue"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/Epilogue-SemiBold-600.woff2") format("woff2"); }
@@ -19,7 +20,7 @@
   --muted: #3F4E68;
   --line: #E6DACB;
   --white: #fff;
-  --font-display: "Epilogue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "League Gothic", "Arial Narrow", Impact, sans-serif;
   --font-body: "Epilogue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --radius: 8px;
   --header-h: 76px;
@@ -39,10 +40,10 @@ body.menu-open { overflow: hidden; }
 /* Fundo de areia (foto) fixo atrás de toda a página, suavizado para manter o texto legível. */
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(rgba(250,244,234,.5), rgba(250,244,234,.5)), url("../img/areia-textura.webp") center / cover no-repeat; }
 img { max-width: 100%; display: block; }
-h1, h2, h3 { font-family: var(--font-display); color: var(--navy); font-weight: 500; line-height: 1.14; margin: 0 0 .6em; letter-spacing: -.03em; }
-h1 { font-size: clamp(2rem, 4.8vw, 3.6rem); }
-h2 { font-size: clamp(1.65rem, 3.3vw, 2.4rem); }
-h3 { font-size: 1.15rem; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--navy); font-weight: 400; line-height: 1.02; margin: 0 0 .5em; letter-spacing: .015em; text-transform: uppercase; }
+h1 { font-size: clamp(3rem, 7.4vw, 5.8rem); }
+h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+h3 { font-size: 1.7rem; }
 p { margin: 0 0 1.1em; }
 a { color: var(--navy); }
 :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 6px; }
@@ -72,7 +73,7 @@ a { color: var(--navy); }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.98); border-bottom: 1px solid var(--line); }
 .header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: inline-flex; align-items: baseline; gap: 6px; line-height: 1; text-decoration: none; color: var(--navy); position: relative; z-index: 3; white-space: nowrap; }
-.brand-mar { font: 600 30px/1 var(--font-display); letter-spacing: 3px; }
+.brand-mar { font: 400 44px/1 var(--font-display); letter-spacing: 3px; }
 \.brand-sub { font-family: var(--font-body); font-size: 14px; letter-spacing: 3px; }
 .brand-footer { color: #fff; margin-bottom: 14px; }
 .main-nav { display: flex; align-items: center; gap: 28px; }
@@ -97,7 +98,7 @@ a { color: var(--navy); }
   .nav-bg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
   .main-nav > :not(.nav-bg) { position: relative; z-index: 1; }
   .main-nav ul { flex-direction: column; gap: 6px; }
-  .main-nav ul a { color: #fff; font-family: var(--font-display); font-size: 2rem; border: 0; }
+  .main-nav ul a { color: #fff; font-family: var(--font-display); font-size: 2.6rem; text-transform: uppercase; letter-spacing: .02em; border: 0; }
   .main-nav .btn { background: #fff; color: var(--navy); }
   body.menu-open .brand { color: #fff; }
 }
@@ -144,7 +145,7 @@ a { color: var(--navy); }
 .band { position: relative; height: clamp(180px, 24vw, 280px); overflow: hidden; display: flex; align-items: center; background: var(--navy); }
 .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,27,61,.7), rgba(11,42,91,.2)); }
-.band-text { position: relative; z-index: 1; color: #fff; font-family: var(--font-display); font-size: clamp(1.5rem, 3.4vw, 2.4rem); margin: 0 auto; max-width: 1160px; }
+.band-text { position: relative; z-index: 1; color: #fff; font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); text-transform: uppercase; letter-spacing: .02em; line-height: 1; margin: 0 auto; max-width: 1160px; }
 
 /* Serviços */
 .cards { display: grid; gap: 24px; }
@@ -157,7 +158,7 @@ a { color: var(--navy); }
 .card-icon { position: absolute; z-index: 1; left: 16px; top: 16px; width: 40px; height: 40px; border-radius: 6px; background: rgba(250,245,236,.92); display: grid; place-items: center; }
 .card-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--navy); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .card-body { padding: 26px 24px 28px; }
-.card-body h3 { font-size: 1.15rem; }
+.card-body h3 { font-size: 1.7rem; }
 .card-body p { margin: 0; color: var(--muted); font-size: 1rem; }
 @media (max-width: 1099px) { .cards-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 599px) { .cards-4 { grid-template-columns: 1fr; } }
@@ -176,7 +177,7 @@ a { color: var(--navy); }
 .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; counter-reset: s; }
 .step { position: relative; z-index: 1; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); overflow: hidden; padding-bottom: 28px; }
 .step img { width: 100%; height: 150px; object-fit: cover; margin-bottom: 0; }
-.step-num { align-self: flex-start; margin: 18px 0 6px 24px; font-family: var(--font-display); font-size: 1.5rem; color: var(--teal); letter-spacing: .04em; }
+.step-num { align-self: flex-start; margin: 18px 0 6px 24px; font-family: var(--font-display); font-size: 2rem; color: var(--teal); letter-spacing: .04em; }
 .step h3, .step p { padding: 0 24px; }
 .step h3 { margin-bottom: .3em; }
 .step p { margin: 0; color: var(--muted); }
@@ -236,9 +237,9 @@ a { color: var(--navy); }
 .band-text { position: static; color: var(--navy); }
 /* Quem somos: nome com a foto dentro das letras */
 .about-new { text-align: left; }
-.about-logo { font-size: clamp(2.2rem, 7vw, 5.2rem); line-height: 1.02; font-weight: 700; letter-spacing: -.045em; white-space: nowrap; margin: 0 0 .4em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .1em; }
+.about-logo { font-size: clamp(3.6rem, 15vw, 11rem); line-height: .95; font-weight: 400; letter-spacing: .01em; text-transform: uppercase; white-space: nowrap; margin: 0 0 .4em; color: transparent; background: url("../img/mar-coral-vertical.webp") center 48% / cover; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: .1em; }
 .about-copy { max-width: 44rem; }
-.about-copy .about-statement { font-family: var(--font-display); font-size: clamp(1.35rem, 2.8vw, 2rem); line-height: 1.15; font-weight: 500; color: #fff; margin-bottom: .6em; letter-spacing: -.01em; }
+.about-copy .about-statement { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; font-weight: 400; color: #fff; text-transform: uppercase; letter-spacing: .015em; margin-bottom: .6em; letter-spacing: -.01em; }
 .about-copy p { font-size: 1rem; line-height: 1.65; color: #EAF4FA; }
 .about-copy strong { color: #fff; }
 @media (max-width: 699px) { :root { --wave-h: 28px; --link-h: 130px; --link-overlap: 40px; --header-h: 72px; } }
